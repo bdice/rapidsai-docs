@@ -14,8 +14,8 @@ RAPIDS has several methods for installation, depending on the preferred environm
 {: .fs-6 .fw-300 }
 
 **[1. Provision System](#provision)** <br/>
-**[2A. Setup Environment](#setup)** <br/>
-**[2B. Setup WSL2 Environment](#WSL2)** <br/>
+**[2A. Set Up Environment](#setup)** <br/>
+**[2B. Set Up WSL2 Environment](#WSL2)** <br/>
 **[3A. Install RAPIDS (Release Selector)](#selector)** <br/>
 **[3B. Install RAPIDS (pip)](#pip)** <br/>
 **[4. Getting Started](#start)**  
@@ -32,9 +32,9 @@ All provisioned systems need to be RAPIDS capable. Here's what is required:
 <i class="fas fa-microchip"></i> **GPU:** NVIDIA Pascal™ or better with [compute capability](https://developer.nvidia.com/cuda-gpus){: target="_blank"} 6.0+
 
 <i class="fas fa-desktop"></i> **OS:** One of the following OS versions:
-- <i class="fas fa-check-circle"></i> Ubuntu 20.04/22.04 or CentOS 7 / Rocky Linux 8 with <code>gcc/++</code> 9.0+
+- <i class="fas fa-check-circle"></i> Ubuntu 20.04 or 22.04
+- <i class="fas fa-check-circle"></i> CentOS 7 or Rocky Linux 8 (Note: RHEL 7/8 support is provided through CentOS 7 / Rocky Linux 8 builds/installs)
 - <i class="fas fa-check-circle"></i> Windows 11 using a [WSL2 specific install](#WSL2)
-- <i class="fas fa-check-circle"></i> RHEL 7/8 support is provided through CentOS 7 / Rocky Linux 8 builds/installs
 
 <i class="fas fa-download text-purple"></i> **CUDA & NVIDIA Drivers:** One of the following supported versions:
 {: .no-tb-margins }
@@ -71,9 +71,9 @@ Several services also offer **free and limited** trials with GPU resources:
 <br/>
 <div id="setup"></div>
 
-## 2A. Setup Environment
+## 2A. Set Up Environment
 For most installations, you will need a Conda or Docker environments installed for RAPIDS. Note, these examples are structured for installing on **Ubuntu**. Please modify appropriately for CentOS / Rocky Linux. **Windows 11** has a [WSL2 specific install](#WSL2). Jump to your preferred environment:
-- [Conda](#conda) 
+- [Conda](#conda)
 - [Docker](#docker)
 - [pip](#pip)
 - [Build from Source](#source)
