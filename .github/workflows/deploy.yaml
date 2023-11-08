@@ -3,6 +3,7 @@ on:
   schedule:
     - cron: "0 9 * * *"
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
@@ -48,18 +49,18 @@ jobs:
       - name: Post-process docs
         run: ci/post-process.sh
 
-      - name: Deploy site
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DOCS_SITE_ID }}
-          # TODO: use official netlify-cli pkg after https://github.com/netlify/cli/issues/1809
-          # is resolved and deployed.
-        run: |
-          npm install --global --force @aschmidt8/netlify-cli
+#     - name: Deploy site
+#       env:
+#         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
+#         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DOCS_SITE_ID }}
+#         # TODO: use official netlify-cli pkg after https://github.com/netlify/cli/issues/1809
+#         # is resolved and deployed.
+#       run: |
+#         npm install --global --force @aschmidt8/netlify-cli
 
-          ARGS=""
-          if [ "$GITHUB_REF_NAME" = "main" ]; then
-            ARGS="--prod"
-          fi
-          netlify deploy "$ARGS" \
-            --dir=_site
+#         ARGS=""
+#         if [ "$GITHUB_REF_NAME" = "main" ]; then
+#           ARGS="--prod"
+#         fi
+#         netlify deploy "$ARGS" \
+#           --dir=_site
